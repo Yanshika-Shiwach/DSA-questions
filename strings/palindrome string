@@ -1,0 +1,21 @@
+class Solution {
+  public:
+    bool isPalindrome(string& s) {
+        // code here
+        string s2;
+        s2=s;
+        int n=s.length();
+        int start=0;
+        int end=n-1;
+        while(start<end){
+            swap(s[start],s[end]);
+            start++;
+            end--;
+            
+        }
+        if(s2==s)
+        return true;
+        return false;
+      
+    }
+};
