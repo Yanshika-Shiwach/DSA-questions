@@ -1,0 +1,35 @@
+class Solution {
+public:
+
+    string arrangeWords(string s) {
+   for(char &c:s)
+   c=tolower(c);
+   vector<string>words;
+   string temp="";
+   for(char c:s){
+    if(c==' '){
+        words.push_back(temp);
+        temp="";
+    }
+    else temp+=c;
+   }
+   words.push_back(temp);
+   for(int i = 1; i < words.size(); i++){
+            string key = words[i];
+            int j = i - 1;
+ while(j >= 0 && words[j].size() > key.size()){
+                words[j + 1] = words[j];
+                j--;
+            }
+
+            words[j + 1] = key;
+        }
+   words[0][0]=toupper(words[0][0]);
+   string ans="";
+   for(int i=0;i<words.size();i++){
+    ans+=words[i];
+    if(i!=words.size()-1)ans+=" ";
+   }
+   return ans;
+       }
+};
